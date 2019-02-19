@@ -77,9 +77,8 @@ void searchTheRooms() {
   turn(0);
   delay(500);
   goUntilLineIsWhite(straightVelocity);
-  instantStop();                                                                                              
+  instantStop;                                                                       
   findLine();
-  
 }
 
 

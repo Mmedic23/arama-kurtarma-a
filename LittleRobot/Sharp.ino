@@ -23,16 +23,10 @@ boolean isBackAvailable() {
 }
 
 void findLine() {
-  unsigned int dis = sharpIR.distance();
-  if (dis > 28) { //28 30 olarak güncellencek
-    setMotors(200, 50);
-  } else if (dis > 20) {
-    setMotors(125, 125);
-  } else {
-    setMotors(80, 140);
-  }
+  int dis = 5 * (21 - sharpIR.distance());
+  setMotors(100 + dis, 100 - dis);
   delay(500);
-  while (true) {
+  while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }
 }

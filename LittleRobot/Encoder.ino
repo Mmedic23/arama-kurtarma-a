@@ -2,7 +2,7 @@
 const double perimeterOfWheel = 4.687 * PI;
 const double shaftConstant = 297.92;
 const int magneticPoles = 12;
-double encoderKp = 4, encoderKi = 0, encoderKd = 0;
+double encoderKp = 25, encoderKi = 0, encoderKd = 0;
 const double step2cmConstant = perimeterOfWheel / (shaftConstant * magneticPoles);
 
 PID encoderPID(&encoderInput, &encoderOutput, &encoderSetpoint, encoderKp, encoderKi, encoderKd, DIRECT);

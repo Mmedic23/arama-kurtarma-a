@@ -19,7 +19,7 @@ double initPos;
 RF24 radio(48, 49); // CE, CSN
 Encoder encoderLeft(20, 21);
 Encoder encoderRight(18, 19);
-SharpIR sharpIR(A4, 1080);
+SharpIR sharpIR(A7, 1080);
 
 
 void setup() {
@@ -33,10 +33,8 @@ void setup() {
   //radio.startListening();
 }
 void loop() {
-  //turn(180);
-  delay(500);
-  go(50, 100);
-  instantStop();
+  findLine();
+  //searchTheRooms();
   /*
     initNRFWrite();
     searchForDoor();
