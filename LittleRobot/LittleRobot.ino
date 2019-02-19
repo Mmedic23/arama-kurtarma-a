@@ -33,8 +33,8 @@ void setup() {
   //radio.startListening();
 }
 void loop() {
-  findLine();
-  //searchTheRooms();
+  searchTheRooms();
+  //qtrTest();
   /*
     initNRFWrite();
     searchForDoor();

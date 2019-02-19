@@ -3,7 +3,7 @@ void searchTheRooms() {
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }
-  idealDegree = 0;
+  idealDegree = 0; // WARNING TEST THIS MIGHT CAUSE PROBLEMS MIGHT NEED MAKEENCODERZERO()
   Serial.println("REACHED ENTRY POINT");
   go(112, straightVelocity);
   instantStop();
@@ -13,41 +13,45 @@ void searchTheRooms() {
   delay(500);
   goUntilLineIsWhite(straightVelocity);
   Serial.println("REACHED LINE BETWEEN FIRST TWO ROOMS");
-  go(9,straightVelocity);
+  go(9, straightVelocity);
   instantStop();
   delay(500);
   turn(180);
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }
-  Serial.println("REACHED FIRST ROOM ENTRY POINT");
-  go(30, straightVelocity);
   instantStop();
-  Serial.println("ENTERED FIRST ROOM");
+  Serial.println("REACHED FIRST ROOM ENTRY POINT");
+  setMotors(180, 180);
+  delay(1000);
+  instantStop();
   ldrAssignRoom(1);
   turn(0);
   goUntilLineIsWhite(straightVelocity);
-  go(10,straightVelocity);
-  Serial.println("REACHED SECOND ROOM ENTRY POINT");
+  go(10, straightVelocity);
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }
-  go(30,straightVelocity);
   instantStop();
-  Serial.println("ENTERED SECOND ROOM");
+  Serial.println("REACHED SECOND ROOM ENTRY POINT");
+  setMotors(180, 180);
+  delay(1000);
+  instantStop();
   ldrAssignRoom(2);
   turn(180);
   goUntilLineIsWhite(straightVelocity);
   initPos = distanceMeasure('r');
-  while(distanceMeasure('r') < initPos + 40){
+  while (distanceMeasure('r') < initPos + 40) {
     pidLineFollow();
   }
   instantStop();
   Serial.println("REACHED MIDPOINT OF LINE BETWEEN SECOND SET OF ROOMS");
   delay(500);
-  turn(270);
+  turn(-90);
+  Serial.print("*************");
+  Serial.println(getHeading());
   goUntilLineIsWhite(straightVelocity);
-  go(9,200);
+  go(9, 200);
   instantStop();
   delay(500);
   turn(180);
@@ -55,15 +59,16 @@ void searchTheRooms() {
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }
-  Serial.println("REACHED ENTRY POINT OF THIRD ROOM");
-  go(30, straightVelocity);
   instantStop();
-  Serial.println("ENTERED THIRD ROOM");
+  Serial.println("REACHED ENTRY POINT OF THIRD ROOM");
+  setMotors(180, 180);
+  delay(1000);
+  instantStop();
   ldrAssignRoom(3);
   turn(0);
   goUntilLineIsWhite(straightVelocity);
   initPos = distanceMeasure('r');
-  while(distanceMeasure('r') < initPos + 40){
+  while (distanceMeasure('r') < initPos + 40) {
     pidLineFollow();
   }
   instantStop();
@@ -77,8 +82,11 @@ void searchTheRooms() {
   turn(0);
   delay(500);
   goUntilLineIsWhite(straightVelocity);
-  instantStop;                                                                       
+  instantStop;
   findLine();
+  while (!isLineCompletelyWhite()) {
+    pidLineFollow();
+  }
 }
 
 

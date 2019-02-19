@@ -32,12 +32,12 @@ boolean isLineCompletelyWhite() {
 
 boolean isOnWhiteLine() {
   qtrRead();
-    for (int i = 0; i < 7; i++) {
-      if(qtrValues[i] == 1)
+  for (int i = 0; i < 7; i++) {
+    if (qtrValues[i] == 1)
       return true;
   }
   return false;
-  
+
 }
 
 // Prints the current values of the qtr sensor to serial port. For testing and debugging.

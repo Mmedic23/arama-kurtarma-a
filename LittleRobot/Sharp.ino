@@ -26,7 +26,4 @@ void findLine() {
   int dis = 5 * (21 - sharpIR.distance());
   setMotors(100 + dis, 100 - dis);
   delay(500);
-  while (!isLineCompletelyWhite()) {
-    pidLineFollow();
-  }
 }
