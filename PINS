@@ -1,0 +1,12 @@
+NRF QTR ENCODER AND MOTOR DRIVERS' PINS HAVE TO BE COMMON AT TWO ROBOTS.
+
+in1L  a1  
+in2L  a2
+in1R  a3
+in2R  a4
+encoder left 2 3
+encoder right 20 21
+nrf 9 10 ce csn
+bluetooth pins will be set.
+
+ 

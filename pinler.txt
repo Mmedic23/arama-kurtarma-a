@@ -1,0 +1,38 @@
+ldrPin 12
+qtrPins 29, 28, 27, 26, 25, 24, 23, 22
+sharpPinRight A5
+sharpPinBack A6
+sharpPinFron 30
+nrfCE 9
+nrfCSE 10
+EncoderLeft(18, 19);
+EncoderRight(20, 21);
+in1L A3
+in2L A2
+in1R A1
+in2R A0
+enL 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+enR 3
