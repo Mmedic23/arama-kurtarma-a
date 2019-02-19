@@ -23,7 +23,7 @@ boolean isBackAvailable() {
 }
 
 void findLine() {
-  int dis = 5 * (21 - sharpIR.distance());
+  int dis = 7 * (21 - sharpIR.distance()); // THIS COEFFICIENT MUST BE TESTED THOROUGHLY
   setMotors(100 + dis, 100 - dis);
   delay(500);
 }

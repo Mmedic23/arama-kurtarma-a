@@ -22,7 +22,7 @@ void searchTheRooms() {
   }
   instantStop();
   Serial.println("REACHED FIRST ROOM ENTRY POINT");
-  setMotors(180, 180);
+  setMotors(180, 190);
   delay(1000);
   instantStop();
   ldrAssignRoom(1);
@@ -34,7 +34,7 @@ void searchTheRooms() {
   }
   instantStop();
   Serial.println("REACHED SECOND ROOM ENTRY POINT");
-  setMotors(180, 180);
+  setMotors(180, 190);
   delay(1000);
   instantStop();
   ldrAssignRoom(2);
@@ -61,7 +61,7 @@ void searchTheRooms() {
   }
   instantStop();
   Serial.println("REACHED ENTRY POINT OF THIRD ROOM");
-  setMotors(180, 180);
+  setMotors(180, 190);
   delay(1000);
   instantStop();
   ldrAssignRoom(3);
