@@ -3,7 +3,7 @@ void searchTheRooms() {
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }
-  setMotors(200,200);
+  setMotors(200, 200);
   delay(200);
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
@@ -94,9 +94,10 @@ void searchTheRooms() {
   instantStop();
   delay(1000);
   findLine();
-  while (!isLineCompletelyWhite()) {
-    pidLineFollow();
-  }
+  //while (!isLineCompletelyWhite()) {
+  //  pidLineFollow();
+  //}
+  stopMotors();
 }
 
 
@@ -112,22 +113,22 @@ void ldrAssignRoom(int roomNumber) {
 
 
 //IT SHOULD READ FREQUENCY AND MATCH IT WITH CLOSEST FREQUENCY IT READ BEFORE
-void whereAmI() {
+char whereAmI() {
   double currentFrequency = ldrAverage(3);
   if (abs(roomFrequencies[0] - currentFrequency) < 50) {
-    roomNumber = 1;
+    roomNumber = '1';
   }
   else if (abs(roomFrequencies[1] - currentFrequency) < 50) {
-    roomNumber = 2;
+    roomNumber = '2';
   }
   else if (abs(roomFrequencies[2] - currentFrequency) < 50) {
-    roomNumber = 3;
+    roomNumber = '3';
   }
   else {
-    roomNumber = 4;
+    roomNumber = '4';
   }
   Serial.print("Neredeyim ? ");
   Serial.println(roomNumber);
-  char roomChar = char(roomNumber);
-  writeNRF(roomChar);
+  return roomNumber;
+  //writeNRF(roomChar);
 }

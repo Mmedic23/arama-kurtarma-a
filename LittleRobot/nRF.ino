@@ -11,15 +11,16 @@ void initNRF() {
 
 void readNRF() {
   radio.startListening();
-  while (!radio.available()) {
-    Serial.println("Listening");
-  }
+  //while (!radio.available()) {
+  //  Serial.println(radio.available());
+  //}
   radio.read(&message, sizeof(message));
-  Serial.println(message);
+  Serial.print(message);
+  Serial.println(" from readNRF()");
 }
 
 void writeNRF(char message) {
   radio.stopListening();
   radio.write(&message, sizeof(message));
-  delay(100);
+  delay(50);
 }

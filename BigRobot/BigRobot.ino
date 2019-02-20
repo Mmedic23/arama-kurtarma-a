@@ -27,10 +27,12 @@ void setup() {
 }
 
 void loop() {
- delay(1000);
- writeNRF('r');
- while(message != '1' || message != '2' || message != '3' || message != '4'){
-  readNRF();
- }
- rescue(message);
+  while (message == 'x') {
+    writeNRF('r');
+    delay(50);
+    readNRF();
+    Serial.println(message);
+    delay(50);
+  }
+  rescue(message);
 }

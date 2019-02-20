@@ -33,32 +33,25 @@ void setup() {
   //radio.startListening();
 }
 void loop() {
-  //Serial.println(sharpIR.distance());
-  //searchTheRooms();
-  //qtrTest();
-  searchTheRooms();
-  while(message != 'r'){
-    readNRF();
-    delay(5);
-  }
-  whereAmI();
-  while(message != 's'){
-    readNRF();
-    delay(5);
-  }
   searchForDoor();
   homeComing();
   /*
-    initNRFWrite();
-    searchForDoor();
-    whereAmI();
-    initNRFRead();
-    readNRF();
-    stopMotors();
     while (message != 'r') {
     readNRF();
     }
-    goToDoor();
+    Serial.print(message);
+    Serial.println(" from main loop. Exited first while loop.");
+    char currentRoom = '4';//whereAmI();
+    while (message != 's') {
+    Serial.print("Basıyom");
+    writeNRF(currentRoom);
+    delay(50);
+    readNRF();
+    delay(50);
+    }
+    makeEncoderZero();
+    idealDegree = 0;
+    searchForDoor();
     homeComing();
   */
 }

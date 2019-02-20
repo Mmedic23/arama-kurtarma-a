@@ -1,9 +1,3 @@
-char locationOfLittleRobot() {
-  readNRF();
-  return message;
-}
-
-
 
 void rescue(char roomNumber) {
   while (!isLineCompletelyWhite()) {
@@ -33,8 +27,10 @@ void rescue(char roomNumber) {
     stopMotors();
     delay(500);
     go(65, straightVelocity);
-    writeNRF('s');
     instantStop();
+    for (int i = 0; i < 30; i++) {
+      writeNRF('s');
+    }
     delay(500);
     turn(360); // SAME EXCEPT DIRECTION
     delay(500);
@@ -60,7 +56,9 @@ void rescue(char roomNumber) {
     delay(500);
     go(65, straightVelocity);
     instantStop();
-    writeNRF('s');
+    for (int i = 0; i < 30; i++) {
+      writeNRF('s');
+    }
     delay(500);
     turn(0);
     delay(500);
@@ -86,7 +84,9 @@ void rescue(char roomNumber) {
     delay(500);
     go(65, straightVelocity);
     instantStop();
-    writeNRF('s');
+    for (int i = 0; i < 30; i++) {
+      writeNRF('s');
+    }
     delay(500);
     turn(-360);
     delay(500);
@@ -112,7 +112,9 @@ void rescue(char roomNumber) {
     delay(500);
     go(65, straightVelocity);
     instantStop();
-    writeNRF('s');
+    for (int i = 0; i < 30; i++) {
+      writeNRF('s');
+    }
     delay(500);
     turn(0);
     delay(500);
