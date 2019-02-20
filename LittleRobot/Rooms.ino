@@ -3,6 +3,14 @@ void searchTheRooms() {
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }
+  setMotors(200,200);
+  delay(200);
+  while (!isLineCompletelyWhite()) {
+    pidLineFollow();
+  }
+  instantStop();
+  delay(200);
+  makeEncoderZero();
   idealDegree = 0; // WARNING TEST THIS MIGHT CAUSE PROBLEMS MIGHT NEED MAKEENCODERZERO()
   Serial.println("REACHED ENTRY POINT");
   go(112, straightVelocity);
@@ -48,6 +56,7 @@ void searchTheRooms() {
   Serial.println("REACHED MIDPOINT OF LINE BETWEEN SECOND SET OF ROOMS");
   delay(500);
   turn(-90);
+  delay(500);
   Serial.print("*************");
   Serial.println(getHeading());
   goUntilLineIsWhite(straightVelocity);
@@ -82,7 +91,8 @@ void searchTheRooms() {
   turn(0);
   delay(500);
   goUntilLineIsWhite(straightVelocity);
-  instantStop;
+  instantStop();
+  delay(1000);
   findLine();
   while (!isLineCompletelyWhite()) {
     pidLineFollow();

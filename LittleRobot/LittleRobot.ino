@@ -33,8 +33,21 @@ void setup() {
   //radio.startListening();
 }
 void loop() {
-  searchTheRooms();
+  //Serial.println(sharpIR.distance());
+  //searchTheRooms();
   //qtrTest();
+  searchTheRooms();
+  while(message != 'r'){
+    readNRF();
+    delay(5);
+  }
+  whereAmI();
+  while(message != 's'){
+    readNRF();
+    delay(5);
+  }
+  searchForDoor();
+  homeComing();
   /*
     initNRFWrite();
     searchForDoor();

@@ -88,10 +88,10 @@ double distanceMeasure(char wheel) {
 }
 
 
-//void makeEncoderZero() {
-//  encoderLeft.write(0);
-//  encoderRight.write(0);
-//}
+void makeEncoderZero() {
+  encoderLeft.write(0);
+  encoderRight.write(0);
+}
 
 void encoderTest() {
   Serial.print(distanceMeasure('l'));

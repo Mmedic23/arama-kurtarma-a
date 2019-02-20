@@ -1,30 +1,35 @@
 void homeComing() {
-  go(-30,150);
-  if (roomNumber == 1 || roomNumber == 2) {
-    if (roomNumber == 1) {
-      turn(-90);
-    }
-    else {
-      turn(90);
-    }
-    go(65, 150);
-    turn(90);
-  }
-  else if (roomNumber == 3 || roomNumber == 3) {
-    if (roomNumber == 3) {
-      turn(90);
-    }
-    else {
-      turn(-90);
-    }
-    go(65, 150);
+  if (roomNumber == 1) {
     turn(-90);
+    go(65, straightVelocity);
+    turn(0);
   }
-  while (!isLineCompletelyWhite()) {
-    setMotors(150, 150);
+  else if (roomNumber == 2) {
+    turn(90);
+    go(65, straightVelocity);
+    turn(180);
   }
-  delay(300);
+  else if (roomNumber == 3) {
+    turn(90);
+    go(65, straightVelocity);
+    turn(0);
+  }
+  else if (roomNumber == 4) {
+    turn(-90);
+    go(65, straightVelocity);
+    turn(180);
+  }
+  goUntilLineIsWhite(180);
+  instantStop();
+  delay(200);
+  findLine();
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }
+  initPos = distanceMeasure('r');
+  while (distanceMeasure('r') < initPos + 40){
+    pidLineFollow();
+  } 
+  instantStop();
+  Serial.println("ez win");
 }

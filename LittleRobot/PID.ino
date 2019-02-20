@@ -1,4 +1,4 @@
-double qtrKp=40, qtrKd=26;
+double qtrKp = 40, qtrKd = 26;
 int qtrError = getPosition();
 int lastQtrError = qtrError;
 int pidSpeed;
@@ -7,11 +7,11 @@ int rightBaseSpeed = 200;
 const int qtrMults[] = {7, 5, 3, 1, -1, -3, -5, -7};
 
 //Calculates error value qith using PD and sets motors with that value
-void pidLineFollow(){
- qtrError = getPosition();
- pidSpeed = qtrKp*qtrError + qtrKd*(qtrError - lastQtrError);
- lastQtrError = qtrError;
- setMotors(leftBaseSpeed - pidSpeed, rightBaseSpeed + pidSpeed);
+void pidLineFollow() {
+  qtrError = getPosition();
+  pidSpeed = (qtrKp * qtrError) + (qtrKd * (qtrError - lastQtrError));
+  lastQtrError = qtrError;
+  setMotors(leftBaseSpeed - pidSpeed, rightBaseSpeed + pidSpeed);
 }
 
 
@@ -22,8 +22,8 @@ int getPosition() {
   int sum = 0;
   int valueCounter = 0;
   for (byte i = 0; i < 8; i++) {
-    if (qtrValues[i] == 1){
-      valueCounter++; 
+    if (qtrValues[i] == 1) {
+      valueCounter++;
     }
     sum += qtrValues[i] * qtrMults[i];
   }
@@ -33,9 +33,10 @@ int getPosition() {
   sum /= valueCounter;
   return sum;
 }
-void turnUntilQTRIsZero(){
-  setMotors(-200,190);
-  while(qtrValues [3] != 0){
+
+void turnUntilQTRIsZero() {
+  setMotors(-200, 190);
+  while (qtrValues [3] != 0) {
   }
   stopMotors();
   idealDegree = 360;
