@@ -27,8 +27,10 @@ void setup() {
 }
 
 void loop() {
-  while(message == 'x') {
-    readNRF();
-  }
-  setMotors(100, 100);
+ delay(1000);
+ writeNRF('r');
+ while(message != '1' || message != '2' || message != '3' || message != '4'){
+  readNRF();
+ }
+ rescue(message);
 }
