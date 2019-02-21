@@ -13,26 +13,26 @@ void go(int dist, int velocity) {
     encoderSetpoint = -idealDegree;
     while (distanceMeasure('r') < initPos + dist) {
       encoderInput = -getHeading();
-      Serial.print("Going forwards");
-      Serial.print(encoderInput);
-      Serial.print("    ");
+      //Serial.print("Going forwards");
+      //Serial.print(encoderInput);
+      //Serial.print("    ");
       //Serial.println(encoderRight.read());
       encoderPID.Compute();
       setMotors(velocity + encoderOutput, velocity - encoderOutput);
-      Serial.println(encoderOutput);
+      //Serial.println(encoderOutput);
     }
   }
   else {
     encoderSetpoint = idealDegree;
     while (distanceMeasure('r') > initPos + dist) {
       encoderInput = getHeading();
-      Serial.print("Going backwards");
-      Serial.print(encoderInput);
-      Serial.print("   ");
+      //Serial.print("Going backwards");
+      //Serial.print(encoderInput);
+      //Serial.print("   ");
       //Serial.println(encoderRight.read());
       encoderPID.Compute();
       setMotors(-(velocity + encoderOutput), -(velocity - encoderOutput));
-      Serial.println(encoderOutput);
+      //Serial.println(encoderOutput);
     }
     setMotors(255,255);
     delay(20);

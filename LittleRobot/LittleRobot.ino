@@ -9,7 +9,7 @@
 double encoderSetpoint = 0, encoderInput, encoderOutput;
 byte qtrValues[] = {0, 0, 0, 0, 0, 0, 0, 0};
 float roomFrequencies[] = {0, 0, 0};
-int roomNumber;
+char roomNumber;
 char message = ' ';
 int minVelocity = 25;
 const int straightVelocity = 200;
@@ -33,18 +33,25 @@ void setup() {
   //radio.startListening();
 }
 void loop() {
-  ldrTest();
-  //searchForDoor();
-  //homeComing();
+  //Serial.println(sharpIR.distance());
+  
+  //Serial.println(isNextToWall());
+  findLine();
+  while (!isLineCompletelyWhite()) {
+    pidLineFollow();
+  }
+  stopMotors();
+  while (true) {}
   /*
+    searchTheRooms();
     while (message != 'r') {
     readNRF();
     }
-    Serial.print(message);
-    Serial.println(" from main loop. Exited first while loop.");
-    char currentRoom = '4';//whereAmI();
+    //Serial.print(message);
+    //Serial.println(" from main loop. Exited first while loop.");
+    char currentRoom = whereAmI();
     while (message != 's') {
-    Serial.print("Basıyom");
+    //Serial.print("Basıyom");
     writeNRF(currentRoom);
     delay(50);
     readNRF();
@@ -53,6 +60,8 @@ void loop() {
     makeEncoderZero();
     idealDegree = 0;
     searchForDoor();
+    idealDegree = 0;
+    makeEncoderZero();
     homeComing();
   */
 }

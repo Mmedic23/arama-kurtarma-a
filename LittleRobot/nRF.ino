@@ -15,8 +15,8 @@ void readNRF() {
   //  Serial.println(radio.available());
   //}
   radio.read(&message, sizeof(message));
-  Serial.print(message);
-  Serial.println(" from readNRF()");
+  //Serial.print(message);
+  //Serial.println(" from readNRF()");
 }
 
 void writeNRF(char message) {

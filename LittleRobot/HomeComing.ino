@@ -31,5 +31,5 @@ void homeComing() {
     pidLineFollow();
   } 
   instantStop();
-  Serial.println("ez win");
+  //Serial.println("ez win");
 }

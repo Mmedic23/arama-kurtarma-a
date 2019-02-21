@@ -30,13 +30,17 @@ boolean isBackAvailable() {
 
 void findLine() {
   if (isNextToWall()) {
-    setMotors(175, 125);
+    setMotors(255, 60);
     delay(500);
-
   }
   else {
-    int dis = 7 * (21 - sharpIR.distance()); // THIS COEFFICIENT MUST BE TESTED THOROUGHLY
-    setMotors(100 + dis, 100 - dis);
+    int sharpRead = sharpIR.distance();
+    if (sharpRead > 42) {
+      sharpRead = 42;
+    }
+    Serial.println(sharpRead);
+    int dis = 5 * (21 - sharpRead); // THIS COEFFICIENT MUST BE TESTED THOROUGHLY
+    setMotors(150 + dis, 150 - dis);
     delay(500);
   }
 }
@@ -44,8 +48,10 @@ void findLine() {
 void sharpTest() {
   Serial.print("Back is ");
   Serial.print(isBackAvailable() ? "available" : "NOT available");
-  Serial.print(" || Left is ");
+  Serial.print(" || ANALOG Left is ");
   Serial.print(isLeftAvailable() ? "available" : "NOT available");
+  Serial.print(" || DIGITAL Left is ");
+  Serial.print(isNextToWall() ? "next to wall" : "NOT next to wall");
   Serial.print(" || Facing door? ");
   Serial.println(isFacingDoor() ? "True" : "False");
 }

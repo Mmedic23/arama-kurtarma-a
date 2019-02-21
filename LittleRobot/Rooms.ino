@@ -1,5 +1,5 @@
 void searchTheRooms() {
-  Serial.println("START");
+  //Serial.println("START");
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }
@@ -12,15 +12,15 @@ void searchTheRooms() {
   delay(200);
   makeEncoderZero();
   idealDegree = 0; // WARNING TEST THIS MIGHT CAUSE PROBLEMS MIGHT NEED MAKEENCODERZERO()
-  Serial.println("REACHED ENTRY POINT");
+  //Serial.println("REACHED ENTRY POINT");
   go(112, straightVelocity);
   instantStop();
-  Serial.println("REACHED CENTRE");
+  //Serial.println("REACHED CENTRE");
   delay(500);
   turn(90);
   delay(500);
   goUntilLineIsWhite(straightVelocity);
-  Serial.println("REACHED LINE BETWEEN FIRST TWO ROOMS");
+  //Serial.println("REACHED LINE BETWEEN FIRST TWO ROOMS");
   go(9, straightVelocity);
   instantStop();
   delay(500);
@@ -29,7 +29,7 @@ void searchTheRooms() {
     pidLineFollow();
   }
   instantStop();
-  Serial.println("REACHED FIRST ROOM ENTRY POINT");
+  //Serial.println("REACHED FIRST ROOM ENTRY POINT");
   setMotors(180, 190);
   delay(1000);
   instantStop();
@@ -41,7 +41,7 @@ void searchTheRooms() {
     pidLineFollow();
   }
   instantStop();
-  Serial.println("REACHED SECOND ROOM ENTRY POINT");
+  //Serial.println("REACHED SECOND ROOM ENTRY POINT");
   setMotors(180, 190);
   delay(1000);
   instantStop();
@@ -53,12 +53,12 @@ void searchTheRooms() {
     pidLineFollow();
   }
   instantStop();
-  Serial.println("REACHED MIDPOINT OF LINE BETWEEN SECOND SET OF ROOMS");
+  //Serial.println("REACHED MIDPOINT OF LINE BETWEEN SECOND SET OF ROOMS");
   delay(500);
   turn(-90);
   delay(500);
-  Serial.print("*************");
-  Serial.println(getHeading());
+  //Serial.print("*************");
+  //Serial.println(getHeading());
   goUntilLineIsWhite(straightVelocity);
   go(9, 200);
   instantStop();
@@ -69,7 +69,7 @@ void searchTheRooms() {
     pidLineFollow();
   }
   instantStop();
-  Serial.println("REACHED ENTRY POINT OF THIRD ROOM");
+  //Serial.println("REACHED ENTRY POINT OF THIRD ROOM");
   setMotors(180, 190);
   delay(1000);
   instantStop();
@@ -84,7 +84,7 @@ void searchTheRooms() {
   delay(500);
   turn(90);
   delay(500);
-  Serial.println("REACHED MIDPOINT OF LINE BETWEEN SECOND SET OF ROOMS");
+  //Serial.println("REACHED MIDPOINT OF LINE BETWEEN SECOND SET OF ROOMS");
   go(65, straightVelocity);
   instantStop();
   delay(500);
@@ -94,9 +94,9 @@ void searchTheRooms() {
   instantStop();
   delay(1000);
   findLine();
-  //while (!isLineCompletelyWhite()) {
-  //  pidLineFollow();
-  //}
+  while (!isLineCompletelyWhite()) {
+    pidLineFollow();
+  }
   stopMotors();
 }
 
@@ -114,6 +114,12 @@ void ldrAssignRoom(int roomNumber) {
 
 //IT SHOULD READ FREQUENCY AND MATCH IT WITH CLOSEST FREQUENCY IT READ BEFORE
 char whereAmI() {
+  Serial.print("Room 1: ");
+  Serial.println(roomFrequencies[0]);
+  Serial.print("  Room 2: ");
+  Serial.println(roomFrequencies[1]);
+  Serial.print("  Room 3: ");
+  Serial.println(roomFrequencies[2]);
   double currentFrequency = ldrAverage(3);
   if (abs(roomFrequencies[0] - currentFrequency) < 50) {
     roomNumber = '1';
@@ -127,7 +133,7 @@ char whereAmI() {
   else {
     roomNumber = '4';
   }
-  Serial.print("Neredeyim ? ");
+  Serial.print("I am currently in room ");
   Serial.println(roomNumber);
   return roomNumber;
   //writeNRF(roomChar);
