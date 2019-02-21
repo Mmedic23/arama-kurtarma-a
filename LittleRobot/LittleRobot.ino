@@ -33,8 +33,9 @@ void setup() {
   //radio.startListening();
 }
 void loop() {
-  searchForDoor();
-  homeComing();
+  ldrTest();
+  //searchForDoor();
+  //homeComing();
   /*
     while (message != 'r') {
     readNRF();
