@@ -18,8 +18,8 @@ Encoder encoderLeft(20, 21);
 Encoder encoderRight(18, 19);
 
 void setup() {
-  Serial.begin(9600);   // This value is for serial from usb
-  Serial.println("You are connected to BigRobot");
+  //Serial.begin(9600);   // This value is for serial from usb
+  //Serial.println("You are connected to BigRobot");
   defineQTR();
   defineMotors();
   defineEncoderPID();
@@ -31,7 +31,7 @@ void loop() {
     writeNRF('r');
     delay(50);
     readNRF();
-    Serial.println(message);
+    //Serial.println(message);
     delay(50);
   }
   rescue(message);

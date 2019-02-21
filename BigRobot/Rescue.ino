@@ -121,15 +121,15 @@ void rescue(char roomNumber) {
     goUntilLineIsWhite(straightVelocity);
   }
   stopMotors();
-  //  setMotors(50, 50);
-  //  delay(500);
-  //  while (!isLineCompletelyWhite()) {
-  //    pidLineFollow();
-  //  }
-  //  int initPos = distanceMeasure('r');
-  //  while (distanceMeasure('r') - initPos < 40) {
-  //    pidLineFollow();
-  //  }
-  //  stopMotors();
-  //  while (true) {}
+  setMotors(50, 50);
+  delay(500);
+  while (!isLineCompletelyWhite()) {
+    pidLineFollow();
+  }
+  int initPos = distanceMeasure('r');
+  while (distanceMeasure('r') - initPos < 40) {
+    pidLineFollow();
+  }
+  stopMotors();
+  while (true) {}
 }

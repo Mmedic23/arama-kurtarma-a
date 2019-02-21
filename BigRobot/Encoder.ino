@@ -29,7 +29,7 @@ void go(int distance, int velocity) {
     encoderSetpoint = - idealDegree;
     while (distanceMeasure('r') < initPos + distance) {
       encoderInput = -getHeading();
-      Serial.println(encoderInput);
+      //Serial.println(encoderInput);
       //Serial.println(encoderRight.read());
       encoderPID.Compute();
       setMotors(velocity + encoderOutput, velocity - encoderOutput);

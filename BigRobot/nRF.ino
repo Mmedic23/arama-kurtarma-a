@@ -12,10 +12,10 @@ void initNRF() {
 void readNRF() {
   radio.startListening();
   while (!radio.available()) {
-    Serial.println("Listening");
+    //Serial.println("Listening");
   }
   radio.read(&message, sizeof(message));
-  Serial.println(message);
+  //Serial.println(message);
 }
 
 void writeNRF(char a) {

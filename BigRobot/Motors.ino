@@ -68,7 +68,7 @@ void stopMotors() { // Added in 7/12/2018
   digitalWriteFast(in1R, HIGH);
   digitalWriteFast(in2R, HIGH);
   setMotors(0, 0);
-  Serial.println("Motors Stopped because of stopMotors function");
+  //Serial.println("Motors Stopped because of stopMotors function");
 }
 
 void instantStop(){
