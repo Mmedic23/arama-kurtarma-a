@@ -1,4 +1,3 @@
-
 const double perimeterOfWheel = 4.687 * PI;
 const double shaftConstant = 297.92;
 const int magneticPoles = 12;
