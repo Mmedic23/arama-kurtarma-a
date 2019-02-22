@@ -33,16 +33,6 @@ void setup() {
   //radio.startListening();
 }
 void loop() {
-  //Serial.println(sharpIR.distance());
-  
-  //Serial.println(isNextToWall());
-  findLine();
-  while (!isLineCompletelyWhite()) {
-    pidLineFollow();
-  }
-  stopMotors();
-  while (true) {}
-  /*
     searchTheRooms();
     while (message != 'r') {
     readNRF();
@@ -63,5 +53,5 @@ void loop() {
     idealDegree = 0;
     makeEncoderZero();
     homeComing();
-  */
+  
 }

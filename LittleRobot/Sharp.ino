@@ -21,7 +21,7 @@ boolean isNextToWall () {
 
 
 boolean isFacingDoor() {
-  return digitalRead(sharpPinFront);
+  return digitalReadFast(sharpPinFront);
 }
 
 boolean isBackAvailable() {

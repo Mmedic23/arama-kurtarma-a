@@ -1,3 +1,5 @@
+#include <SharpIR.h>
+
 #include <AFMotor.h>
 #include <PID_v1.h>
 #include <Encoder.h>
@@ -16,6 +18,7 @@ int idealDegree;
 RF24 radio(4, 5); //// ORDER IS: CE, CSN
 Encoder encoderLeft(20, 21);
 Encoder encoderRight(18, 19);
+SharpIR sharpIR(A4, 1080);
 
 void setup() {
   //Serial.begin(9600);   // This value is for serial from usb

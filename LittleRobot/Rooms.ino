@@ -8,8 +8,6 @@ void searchTheRooms() {
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }
-  instantStop();
-  delay(200);
   makeEncoderZero();
   idealDegree = 0; // WARNING TEST THIS MIGHT CAUSE PROBLEMS MIGHT NEED MAKEENCODERZERO()
   //Serial.println("REACHED ENTRY POINT");
@@ -30,7 +28,7 @@ void searchTheRooms() {
   }
   instantStop();
   //Serial.println("REACHED FIRST ROOM ENTRY POINT");
-  setMotors(180, 190);
+  setMotors(160, 240);
   delay(1000);
   instantStop();
   ldrAssignRoom(1);
@@ -42,7 +40,7 @@ void searchTheRooms() {
   }
   instantStop();
   //Serial.println("REACHED SECOND ROOM ENTRY POINT");
-  setMotors(180, 190);
+  setMotors(160, 240);
   delay(1000);
   instantStop();
   ldrAssignRoom(2);
@@ -55,7 +53,7 @@ void searchTheRooms() {
   instantStop();
   //Serial.println("REACHED MIDPOINT OF LINE BETWEEN SECOND SET OF ROOMS");
   delay(500);
-  turn(-90);
+  turn(270);
   delay(500);
   //Serial.print("*************");
   //Serial.println(getHeading());
@@ -70,7 +68,7 @@ void searchTheRooms() {
   }
   instantStop();
   //Serial.println("REACHED ENTRY POINT OF THIRD ROOM");
-  setMotors(180, 190);
+  setMotors(160, 240);
   delay(1000);
   instantStop();
   ldrAssignRoom(3);

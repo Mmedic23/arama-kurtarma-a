@@ -1,9 +1,10 @@
-double qtrKp = 40, qtrKd = 26;
+//double qtrKp = 40, qtrKd = 26;
+double qtrKp = 30, qtrKd = 13;
 int qtrError = getPosition();
 int lastQtrError = qtrError;
 int pidSpeed;
-int leftBaseSpeed = 200;
-int rightBaseSpeed = 200;
+int leftBaseSpeed = 160;
+int rightBaseSpeed = 240;
 const int qtrMults[] = {7, 5, 3, 1, -1, -3, -5, -7};
 
 //Calculates error value qith using PD and sets motors with that value
