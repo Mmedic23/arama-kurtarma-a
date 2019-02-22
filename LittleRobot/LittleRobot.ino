@@ -33,25 +33,24 @@ void setup() {
   //radio.startListening();
 }
 void loop() {
-    searchTheRooms();
-    while (message != 'r') {
+  searchTheRooms();
+  while (message != 'r') {
     readNRF();
-    }
-    //Serial.print(message);
-    //Serial.println(" from main loop. Exited first while loop.");
-    char currentRoom = whereAmI();
-    while (message != 's') {
+  }
+  //Serial.print(message);
+  //Serial.println(" from main loop. Exited first while loop.");
+  char currentRoom = whereAmI();
+  while (message != 's') {
     //Serial.print("Basıyom");
     writeNRF(currentRoom);
     delay(50);
     readNRF();
     delay(50);
-    }
-    makeEncoderZero();
-    idealDegree = 0;
-    searchForDoor();
-    idealDegree = 0;
-    makeEncoderZero();
-    homeComing();
-  
+  }
+  makeEncoderZero();
+  idealDegree = 0;
+  searchForDoor();
+  idealDegree = 0;
+  makeEncoderZero();
+  homeComing();
 }

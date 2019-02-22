@@ -1,10 +1,11 @@
-void findLine() {
-    int sharpRead = sharpIR.distance();
-    if (sharpRead > 80) {
-      sharpRead = 80;
-    }
-    Serial.println(sharpRead);
-    int dis = 2 * (42 - sharpRead); // THIS COEFFICIENT MUST BE TESTED THOROUGHLY
-    setMotors(100 + dis, 100 - dis);
-    delay(500);
+void findLine() {  // THIS METHOD'S CM VALUES MUST BE MEASURED IN METU
+  int sharpRead = sharpIR.distance();
+  if (sharpRead > 42) {
+    sharpRead = 42;
+  }
+  Serial.println(sharpRead);
+  int dis = 7 * (20 - sharpRead); // THIS COEFFICIENT MUST BE TESTED THOROUGHLY
+  setMotors(150 + dis, 150 - dis);
+  delay(500);
+  while (!isOnWhiteLine()) {}
 }

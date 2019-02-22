@@ -39,10 +39,11 @@ void findLine() {
       sharpRead = 42;
     }
     Serial.println(sharpRead);
-    int dis = 5 * (21 - sharpRead); // THIS COEFFICIENT MUST BE TESTED THOROUGHLY
+    int dis = 7 * (20 - sharpRead); // THIS COEFFICIENT MUST BE TESTED THOROUGHLY
     setMotors(150 + dis, 150 - dis);
     delay(500);
   }
+  while (!isOnWhiteLine()) {}
 }
 
 void sharpTest() {

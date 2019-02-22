@@ -120,9 +120,7 @@ void rescue(char roomNumber) {
     delay(500);
     goUntilLineIsWhite(straightVelocity);
   }
-  stopMotors();
-  setMotors(50, 50);
-  delay(500);
+  findLine();
   while (!isLineCompletelyWhite()) {
     pidLineFollow();
   }

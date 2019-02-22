@@ -1,5 +1,5 @@
 //double qtrKp = 40, qtrKd = 26;
-double qtrKp = 30, qtrKd = 13;
+double qtrKp = 40, qtrKd = 13;
 int qtrError = getPosition();
 int lastQtrError = qtrError;
 int pidSpeed;
